@@ -12,6 +12,9 @@ const FileStore = require('session-file-store')(session);
 
 const mongoose = require('mongoose');
 
+const passport = require('passport');
+const authenticate = require('./authenticate');
+
 const url = 'mongodb://localhost:27017/nucampsite';
 const connect = mongoose.connect(url, {
     useCreateIndex: true,
@@ -39,8 +42,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //app.use(cookieParser('12345-67890-09876-54321'));
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 //Authentification.
 app.use(session({
@@ -51,21 +52,21 @@ app.use(session({
   store: new FileStore()
 }));
 
-function auth(req, res, next) {
-  console.log(req.session);
+app.use(passport.initialize());
+app.use(passport.session());
 
-  if (!req.session.user) {
-      const err = new Error('You are not authenticated!');
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+function auth(req, res, next) {
+  console.log(req.user);
+
+  if (!req.user) {
+      const err = new Error('You are not authenticated!');                    
       err.status = 401;
       return next(err);
   } else {
-      if (req.session.user === 'authenticated') {
-          return next();
-      } else {
-          const err = new Error('You are not authenticated!');
-          err.status = 401;
-          return next(err);
-      }
+      return next();
   }
 }
 
