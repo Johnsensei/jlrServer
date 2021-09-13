@@ -10,14 +10,14 @@ export const LANGUAGECLASSES = [
         featured: true,
     },
     {
-        id: 1,
-        name:'Japanese 1.1',
-        image: require('./images/japanese-1-1.png'),
-        description: "Level up by learning.",
-        content: ["Katakana", "Telling time", "Asking when", "Verbs", "Negative Verbs", "Planning a trip", "Jobs", "Invitations"],
-        prereqs: "Student should be able to read words and sentences all in hiragana characters with confidence. You should also know how to use the 〜は＿です sentence pattern to ask and answer questions. Basic greetings and numbers also required.",
-        cost: 325,
-        featured: false,
+        "id": 1,
+        "name":'Japanese 1.1',
+        "image": "./images/japanese-1-1.png",
+        "description": "Level up by learning.",
+        "content": ["Katakana", "Telling time", "Asking when", "Verbs", "Negative Verbs", "Planning a trip", "Jobs", "Invitations"],
+        "prereqs": "Student should be able to read words and sentences all in hiragana characters with confidence. You should also know how to use the 〜は＿です sentence pattern to ask and answer questions. Basic greetings and numbers also required.",
+        "cost": 325,
+        "featured": false
     },
     {
         id: 2,

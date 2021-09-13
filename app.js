@@ -61,7 +61,7 @@ app.use('/users', usersRouter);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/languageclasses', languageClassRouter);
-app.use('/videos', promotionRouter);
+app.use('/videos', videoRouter);
 //Path of /apps is to maintain consistency with React project.
 app.use('/apps', mobileAppRouter);
 app.use('/imageUpload', uploadRouter);
