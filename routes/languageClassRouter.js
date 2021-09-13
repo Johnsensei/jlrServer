@@ -9,7 +9,6 @@ languageClassRouter.route('/')
 .options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
 .get(cors.cors, (req, res, next) => {
     LanguageClass.find()
-    //.populate('comments.author')
     .then(languageClasses => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
@@ -45,7 +44,6 @@ languageClassRouter.route('/:languageClassId')
 .options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
 .get(cors.cors, (req, res, next) => {
     LanguageClass.findById(req.params.languageClassId)
-    //.populate('comments.author')
     .then(languageClass => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');

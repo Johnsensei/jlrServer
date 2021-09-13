@@ -4,7 +4,6 @@ const authenticate = require('../authenticate');
 const mobileAppRouter = express.Router();
 const cors = require('./cors');
 
-//TODO: review what the routes actually do and edit based on needs. Might be ok.
 mobileAppRouter.route('/')
 .options(cors.corsWithOptions, (req, res) => res.sendStatus(200))
 .get(cors.cors, (req, res, next) => {
