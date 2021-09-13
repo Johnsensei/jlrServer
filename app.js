@@ -6,10 +6,11 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-const campsiteRouter = require('./routes/campsiteRouter');
-const promotionRouter = require('./routes/promotionRouter');
-const partnerRouter = require('./routes/partnerRouter');
+const languageClassRouter = require('./routes/languageClassRouter');
+const videoRouter = require('./routes/videoRouter');
+const mobileAppRouter = require('./routes/mobileAppRouter');
 const uploadRouter = require('./routes/uploadRouter');
+const studentRouter = require('./routes/studentRouter');
 
 const session = require('express-session');
 
@@ -59,10 +60,13 @@ app.use('/users', usersRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/campsites', campsiteRouter);
-app.use('/promotions', promotionRouter);
-app.use('/partners', partnerRouter);
+//TODO: Double check the languageclasses path in the React project.
+app.use('/languageclasses', languageClassRouter);
+app.use('/videos', promotionRouter);
+//Path of /apps is to maintain consistency with React project.
+app.use('/apps', mobileAppRouter);
 app.use('/imageUpload', uploadRouter);
+app.use('/students', studentRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

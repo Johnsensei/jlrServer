@@ -1,11 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const partnerSchema = new Schema({
+//TODO: Update schema based on design document.
+const videoSchema = new Schema({
     name: {
         type: String,
         required: true,
         unique: true
+    },
+    description: {
+        type: String,
+        required: true
     },
     image: {
         type: String,
@@ -15,16 +20,11 @@ const partnerSchema = new Schema({
         type: Boolean,
         default: false
     },
-    description: {
-        type: String,
-        required: true
-    }   
-}, 
-{
-    //Does this automatically create the CreatedAt and UpdatedAt fields?
+    
+}, {
     timestamps: true
 });
 
-const Partner = mongoose.model('Partner', partnerSchema);
+const Video = mongoose.model('Video', videoSchema);
 
-module.exports = Partner;
+module.exports = Video;
