@@ -4,24 +4,34 @@ const Schema = mongoose.Schema;
 require('mongoose-currency').loadType(mongoose);
 const Currency = mongoose.Types.Currency;
 
-//TODO: Set schema based on design document.
 const languageClassSchema = new Schema({
+    id: {
+        type: Number,
+        required: true,
+        unique: true
+    },
     name: {
         type: String,
         required: true,
         unique: true
     },
-    description: {
-        type: String,
-        required: true
-    },
     image: {
         type: String,
         required: true
     },
-    elevation: {
-        type: Number,
+    description: {
+        type: String,
         required: true
+    },
+    content: {
+        type: Array,
+        required: true,
+        unique: true
+    },
+    prereqs: {
+        type: String,
+        required: true,
+        unique: true
     },
     cost: {
         type: Currency,

@@ -60,7 +60,6 @@ app.use('/users', usersRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-//TODO: Double check the languageclasses path in the React project.
 app.use('/languageclasses', languageClassRouter);
 app.use('/videos', promotionRouter);
 //Path of /apps is to maintain consistency with React project.

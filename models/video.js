@@ -1,20 +1,34 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//TODO: Update schema based on design document.
 const videoSchema = new Schema({
+    id: {
+        type: Number,
+        required: true,
+        unique: true
+    },
     name: {
         type: String,
         required: true,
         unique: true
     },
-    description: {
+    videoID: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     image: {
         type: String,
         required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    video: {
+        type: String,
+        required: true,
+        unique: true
     },
     featured: {
         type: Boolean,

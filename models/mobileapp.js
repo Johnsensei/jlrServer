@@ -1,10 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//TODO: Set schema based on design document.
 const mobileAppSchema = new Schema({
+    id: {
+        type: String,
+        required: true,
+        unique: true 
+    },
     name: {
         type: String,
+        required: true,
+        unique: true
+    },
+    appID: {
+        type: Number,
         required: true,
         unique: true
     },
@@ -12,14 +21,20 @@ const mobileAppSchema = new Schema({
         type: String,
         required: true
     },
-    featured: {
-        type: Boolean,
-        default: false
-    },
     description: {
         type: String,
         required: true
-    }   
+    },
+    video: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    featured: {
+        type: Boolean,
+        default: false
+    }
+      
 }, 
 {
     timestamps: true

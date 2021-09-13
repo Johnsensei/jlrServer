@@ -1,16 +1,27 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//TODO: Set schema based on design document.
 const studentSchema = new Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+    firstname: {
+        type: String,
+        required: true
     },
-    campsites: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Campsite"
-    }]
+    lastname: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    languageclass: {
+        type: String,
+        required: true
+    },
+    term: {
+        type: String,
+        required: true
+    }
 }, {
     timestamps: true
 });
