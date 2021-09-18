@@ -1,4 +1,3 @@
-export const STUDENTS = [
     {
         "firstname": "John",
         "lastname": "Gale",
@@ -6,4 +5,3 @@ export const STUDENTS = [
         "languageclass": "Japanese 1.0",
         "term": "Summer 2022"
     }
-];
